@@ -88,6 +88,7 @@ void Opgave2()
     Console.WriteLine();
 }
 
+// Metode som beregner en vinkel i en trekant ved hjælp af cosinusrelationen
 double CosRelationVinkel(double side1, double side2, double side3)
 {
     double vinkel;
@@ -98,6 +99,7 @@ double CosRelationVinkel(double side1, double side2, double side3)
     return vinkel;
 }
 
+// Metode som beregner en sidelængde i en trekant ved hjælp af cosinusrelationen
 double CosRelationSide(double side1, double side2, double vinkel)
 {
     double side3;

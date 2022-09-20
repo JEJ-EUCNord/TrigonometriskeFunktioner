@@ -63,9 +63,14 @@ void Opgave1()
     vA = CosRelationVinkel(b, c, a);
 
     Console.WriteLine("---- Opgave 1 ----");
-    Console.WriteLine($"Vinkel A er: {vA}");
-    Console.WriteLine($"Vinkel B er: {vB}");
-    Console.WriteLine($"Vinkel C er: {vC}");
+    Console.WriteLine("Følgende oplysninger er givet");
+    Console.WriteLine($"  a : {a}");
+    Console.WriteLine($"  b : {b}");
+    Console.WriteLine($"  c : {c}");
+    Console.WriteLine("Følgende oplysninger er beregnet");
+    Console.WriteLine($"  A : {vA} grader");
+    Console.WriteLine($"  B : {vB} grader");
+    Console.WriteLine($"  C : {vC} grader");
     Console.WriteLine();
 }
 
@@ -79,12 +84,21 @@ void Opgave2()
     // Trekantens vinkler er
     double vA;
     double vB;
-    double vC = 90;
+    double vC = 80;
 
     c = CosRelationSide(a, b, vC);
+    vA = CosRelationVinkel(b, c, a);
+    vB = CosRelationVinkel(a, c, b);
 
     Console.WriteLine("---- Opgave 2 ----");
-    Console.WriteLine($"Længden af c er: {c}");
+    Console.WriteLine("Følgende oplysninger er givet");
+    Console.WriteLine($"  a : {a}");
+    Console.WriteLine($"  b : {b}");
+    Console.WriteLine($"  C : {vC} Grader");
+    Console.WriteLine("Følgende oplysninger er beregnet");
+    Console.WriteLine($"  c : {c}");
+    Console.WriteLine($"  A : {vA} grader");
+    Console.WriteLine($"  B : {vB} grader");
     Console.WriteLine();
 }
 
@@ -94,7 +108,7 @@ double CosRelationVinkel(double side1, double side2, double side3)
     double vinkel;
 
     // Her skal indsættes kode, så den rigtige vinkel beregnes
-    vinkel = 0;
+    vinkel = Rad2Grad(Math.Acos(((side1 * side1) + (side2 * side2) - (side3 * side3)) / (2 * side1 * side2)));
 
     return vinkel;
 }
@@ -105,8 +119,8 @@ double CosRelationSide(double side1, double side2, double vinkel)
     double side3;
 
     // Her skal indsættes kode, så den rigtige sidelængde beregnes
-    side3 = 0;
-
+    side3 = Math.Sqrt((side1 * side1) + (side2 * side2) - (2 * side1 * side2 * Math.Cos(Grad2Rad(vinkel))));
+ 
     return side3;
 }
 
